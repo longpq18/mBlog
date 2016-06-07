@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
 	#attr_accessor :password
     #has_secure_password
-	has_many :posts, dependent: :destroy
+	  has_many :posts, dependent: :destroy
     has_many :reviews
     has_many :comments
     before_save :encrypt_password
     after_save :clear_password
-    before_create { generate_token(:auth_token) }
+    #before_create { generate_token(:auth_token) }
 
     has_attached_file :avatar
   	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     end  
 
     def match_password(login_password="")
-      password == BCrypt::Engine.hash_secret(login_password, salt)
+      pword == BCrypt::Engine.hash_secret(login_password, salt)
     end
 
     def send_password_reset

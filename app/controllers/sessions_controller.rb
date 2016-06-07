@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 	    user = User.authenticate(params[:uname], params[:pword])
 	    if user
 	      	session[:user_id] = user.id
-	      	session[:user_name] = user.username
+	      	session[:user_name] = user.uname
 	      	redirect_to root_path
     	else
       		flash[:notice] = "User or password not correct"

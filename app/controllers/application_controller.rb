@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   		User.where(:id => session[:user_id]).first
   	end
 
+  	helper_method :current_user
+
   	def authorize
 	  	if session[:user_name] 
 	  		if session[:user_name] == 'admin'

@@ -3,7 +3,10 @@
 		<div class="col-md-12 header-top">
 			<div class="login">
 				<% if( session[:user_id] || cookies[:user_id] ) %>
-					<a href="/profile">Profile</a>
+					<a class="login-avatar">
+						
+					<a href="/profile/<%= session[:user_id] %>">Profile</a>
+					</a>
 					<% else %>
 						<a href="/login">Login</a> | 
 						<a href="/register">Register</a>
@@ -17,13 +20,7 @@
 			<div class="col-md-6 menu">
 				<nav class="menu-nav">
 					<ul>
-						<li><a href="#">Home</a>
-							<ul>
-								<li><a href="/">Home demo 1</a></li>
-								<li><a href="/home-demo-2">Home demo 2</a></li>
-								<li><a href="/home-demo-3">Home demo 3</a></li>
-							</ul>
-						</li>
+						<li><a href="/">Home</a></li>
 						<li><a href="/blog">Blog</a>
 							<ul>
 								<% Category.all.each do | cat | %>

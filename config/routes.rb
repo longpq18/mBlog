@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get '/register' => 'users#new'
 
+  get '/profile/:id' => 'users#show'
+
   get '/login' => 'sessions#new'
 
   resources :categories
