@@ -1,0 +1,57 @@
+<header class="header container-fluid">
+	<div class="row">
+		<div class="col-md-12 header-top">
+			<div class="login">
+				<% if( session[:user_id] || cookies[:user_id] ) %>
+					<a href="/profile">Profile</a>
+					<% else %>
+						<a href="/login">Login</a> | 
+						<a href="/register">Register</a>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-12 header-bottom">
+			<div class="col-md-3 logo">
+				<h1><a href="<%= root_path %>">MBlog</a></h1>
+			</div>
+			<div class="col-md-6 menu">
+				<nav class="menu-nav">
+					<ul>
+						<li><a href="#">Home</a>
+							<ul>
+								<li><a href="/">Home demo 1</a></li>
+								<li><a href="/home-demo-2">Home demo 2</a></li>
+								<li><a href="/home-demo-3">Home demo 3</a></li>
+							</ul>
+						</li>
+						<li><a href="/blog">Blog</a>
+							<ul>
+								<% Category.all.each do | cat | %>
+									<li><%= link_to cat.name, cat %></li>
+									
+								<% end %>
+							</ul>
+						</li>
+						<li><a href="/about">About us</a></li>
+						<li><a href="/contact">Contact us</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="col-md-3 search">
+				<%= form_tag posts_path, :method => 'get' do %>
+				  <p>
+				    <%= text_field_tag :search, params[:search], :placeholder => 'Input Text' %>
+				    <%= submit_tag "Search", :name => nil %>
+				  </p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</header>
+
+<script type="text/javascript">
+	$('.login-profile').hide();
+	$('.login-avatar').click(function(){
+	    $('.login-profile').slideToggle('slow');
+	});
+</script>

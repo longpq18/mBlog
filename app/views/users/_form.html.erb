@@ -1,0 +1,76 @@
+<div class="form-login">
+  <h2>Register</h2>
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :avatar %><br>
+      <%= f.file_field :avatar %>
+    </div>
+
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name, :class => 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name, :class => 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :user_name %><br>
+      <%= f.text_field :uname, :class => 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.password_field :pword, :class => 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation, :class => 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_area :address, :class => 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+
+    <div class="field hide">
+      <%= f.label :permission %><br>
+      <%= f.text_field :permission_id, :input_html => { :value => 2 }, :class => 'form-control' %>
+    </div>
+
+    <div class="field hide">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Register', :class => 'btn btn-primary' %>
+    </div>
+
+  <% end %>
+</div>

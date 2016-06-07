@@ -1,0 +1,14 @@
+<div class="posts">
+  
+  <p id="notice"><%= notice %></p>
+
+  <% @posts.each do |post| %>
+    <div class="col-md-3 posts-details">
+      <%= link_to post.name, post %>
+      <%= post.content %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
+  <p><%= link_to 'New Post', new_post_path %></p>
+</div>
