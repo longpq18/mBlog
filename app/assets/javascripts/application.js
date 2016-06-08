@@ -17,4 +17,5 @@
 //= require jquery.raty
 //= require owl.carousel.min
 //= require qs.main.js
+//= require ckeditor/init
 //= require_tree .

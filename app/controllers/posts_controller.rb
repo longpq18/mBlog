@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  before_action :current_user, only: [:new, :create, :update]
+
   def index
     @categories = Category.all
     if params[:category].blank?
@@ -16,11 +18,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build( post_params )
+    @post.category_id = params[:category_id]
 
     respond_to do |format|
       if @post.save
@@ -34,9 +38,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def update
+    @post.category_id = params[:category_id]
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -62,6 +68,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:user_id, :name, :content, :status, :category_id)
+      params.require(:post).permit(:user_id, :name, :content, :status, :category_id, :image)
     end
 end

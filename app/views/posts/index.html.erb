@@ -4,8 +4,9 @@
 
   <% @posts.each do |post| %>
     <div class="col-md-3 posts-details">
-      <%= link_to post.name, post %>
-      <%= post.content %>
+      <%= image_tag post.image.url %>
+      <h3><%= link_to post.name.first(30), post %></h3>
+      <%= raw post.content %>
       <%= link_to 'Edit', edit_post_path(post) %>
       <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
