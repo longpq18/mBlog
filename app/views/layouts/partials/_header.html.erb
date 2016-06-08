@@ -3,10 +3,9 @@
 		<div class="col-md-12 header-top">
 			<div class="login">
 				<% if( session[:user_id] || cookies[:user_id] ) %>
-					<a class="login-avatar">
 						
-					<a href="/profile/<%= session[:user_id] %>">Profile</a>
-					</a>
+					<a class="login-avatar" href="/profile/<%= session[:user_id] %>">Profile</a> | 
+					<%= link_to 'Logout', session_path(session), method: :delete %>
 					<% else %>
 						<a href="/login">Login</a> | 
 						<a href="/register">Register</a>

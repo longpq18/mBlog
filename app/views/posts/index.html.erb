@@ -1,15 +1,19 @@
 <div class="posts">
   
   <p id="notice"><%= notice %></p>
-
+  <div class="clear-fix">
+    <p style="clear:both;"><%= link_to 'New Post', new_post_path %></p>
+  </div>
   <% @posts.each do |post| %>
     <div class="col-md-3 posts-details">
-      <%= image_tag post.image.url %>
-      <h3><%= link_to post.name.first(30), post %></h3>
-      <%= raw post.content %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div class="img">
+        <%= image_tag post.image.url %>
+      </div> 
+      <h3><%= link_to post.name, post %></h3>
+      <%= raw post.content.first(80) %>
     </div>
   <% end %>
-  <p><%= link_to 'New Post', new_post_path %></p>
+  
 </div>
+
+
