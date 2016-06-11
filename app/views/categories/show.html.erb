@@ -1,14 +1,27 @@
+<div class="posts">
+	<ul class="list-post">
+	    <li><a id="grid" class="active">Grid</a></li>
+	    <li><a id="list" class="">List</a></li>
+	</ul>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+ <h3 class=""><%= @category.name %> Language</h3>
+  <% Post.all.where(:category_id => @category.id).each do | post | %>
+	<div class="posts-details grid">
+            <% if post.status == 1 %>  
+              <div class="post-1">
+                <div class="img">
+                  <%= image_tag post.image.url %>
+                </div> 
+                <div class="post-detail-content">
+                  <h3 class="name" ><%= link_to post.name.first(40), post %></h3>
+                  <h4 class="category"><span>In</span> <%= link_to post.category.name, category_path(post.category.id) %></h4>
+                  <p class="content"><%= raw post.content.first(80) %>...</p>
+                  <p class="readmore"><%= link_to 'Read more', post %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+    <% end %>
+</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @category.status %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
