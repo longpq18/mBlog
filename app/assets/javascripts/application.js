@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap.min
 //= require jquery.raty
 //= require owl.carousel.min
 //= require qs.main.js
+//= require mb
 //= require ckeditor/init
 //= require_tree .

@@ -171,41 +171,11 @@ span.notice {
 	color: red;
 }
 
-.main-content {
-	padding: 20px 0 0;
-	position: inherit !important;
-	.product-content {
-		padding: 0;
-		padding-bottom: 10px;
-		position: inherit !important;
-		.category {
-			.cat-title {
-				background: orange;
-				display: table;
-				border-radius: 0 15px 0 15px;
-				padding: 2px 15px;
-				font-size: 25px;
-
-				a {
-					color: #fff;
-					&:hover {
-						background: transparent;
-						text-decoration: none;
-					}
-				}
-				&:hover {
-					background: #169f85;
-				}
-			}
-		}
-		.products {
-			padding: 0;
-			position: inherit !important;
-			.prd-img {
-				position: inherit !important;
-			}
-		}
-	}
+.wrapper {
+	position: relative;
+	height: 100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .footer {

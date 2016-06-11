@@ -3,6 +3,8 @@ class PostsController < ApplicationController
 
   before_action :current_user, only: [:new, :create, :update]
 
+  layout 'layouts/posts'
+
   def index
     @categories = Category.all
     if params[:category].blank?

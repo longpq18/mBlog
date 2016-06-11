@@ -14,6 +14,7 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'ckeditor'
 gem 'will_paginate', '~> 3.1'
 gem 'protected_attributes'
+gem 'jquery-turbolinks'
 
 gem 'coffee-rails', '~> 4.1.0'
 

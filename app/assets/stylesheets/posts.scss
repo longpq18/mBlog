@@ -3,27 +3,156 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .posts {
-	.posts-details {
-		.img {
-			img {
-				width: 100%;
-				height: 160px;
-			}
-		}
+	//margin: 20px 0;
+	display: inline-block;
 
-		>h3 {
-			font-size: 21px;
+	.list-post {
+		float: right;
+		li {
+			display: inline-block;
+
 			a {
+				cursor: pointer;
+				text-decoration: none;
 				color: #333;
 
 				&:hover {
 					color: orange;
 				}
+
+				&.active {
+					color: orange;
+				}
+			}
+		}
+	}
+
+	.posts-details {
+		.post-detail-content {
+			h3.name {
+				font-size: 21px;
+				line-height: 30px;
+				min-height: 50px;
+				a {
+					color: #333;
+
+					&:hover {
+						color: orange;
+					}
+				}
+
+				&:hover {
+					a {
+						text-decoration: none;
+					}
+				}
 			}
 
-			&:hover {
-				a {
+			.category {
+				span {
+					color: #ccc;
+				}
+			}
+		}
+
+		&.grid {
+			width: 50%;
+			float: left;
+			padding-right: 15px;
+			padding-left: 15px;
+			margin-bottom: 20px;
+
+			.post-1 {
+				border: 1px solid #e5e5e5;
+			}
+			
+			.img {
+				img {
+					width: 100%;
+					height: 200px;
+				}
+			}
+
+			.post-detail-content {
+				min-height: 230px;
+				padding: 10px;
+
+				.readmore {
+					float: right;
+					padding-right: 20px;
+					a {
+						color: #ccc;
+
+						&:hover {
+							text-decoration: none;
+							color: #333;
+						}
+					}
+				}
+			}
+
+		}
+
+		&.list {
+			width: 100%;
+			//padding-right: 15px;
+			//padding-left: 15px;
+			height: 200px;
+			overflow: hidden;
+			margin-bottom: 10px;
+			border: 1px solid #e5e5e5;
+
+			.img {
+				width: 40%;
+				float: left;
+				img {
+					width: 100%;
+					height: 200px;
+				}
+			}
+
+			.post-detail-content {
+				width: 58%;
+				padding: 10px 20px;
+				float: left;
+
+				.name {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
+
+.post-sidebar {
+	// position: absolute !important;
+	// top: 25px;
+	// right: 0;
+	// background: #b3b300;
+	// bottom: 0;
+	// height: 95.5%;
+
+	.head {
+
+	}
+
+	ul {
+		padding: 0;
+		li {
+			padding: 5px 0;
+			a {
+				padding-left: 5px;
+				color: #333;
+				-webkit-transition: all 0.3s ease-in-out;
+				-moz-transition: all 0.3s ease-in-out;
+				-o-transition: all 0.3s ease-in-out;
+				-ms-transition: all 0.3s ease-in-out;
+				transition: all 0.3s ease-in-out;
+
+				&:hover {
+					color: orange;
 					text-decoration: none;
+					padding-left: 10px;
 				}
 			}
 		}
