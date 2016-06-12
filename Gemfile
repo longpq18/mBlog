@@ -14,6 +14,7 @@ gem 'ckeditor'
 gem 'will_paginate', '~> 3.1'
 gem 'protected_attributes'
 gem 'jquery-turbolinks'
+gem 'font-awesome-rails'
 
 gem 'coffee-rails', '~> 4.1.0'
 

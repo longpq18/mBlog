@@ -19,6 +19,7 @@
 			<ul>
 				<% Category.all.each do | cat | %>
 					<li>
+						<i class="fa fa-folder-open-o" aria-hidden="true"></i>
 						<%= link_to cat.name, cat %>
 					</li>
 				<% end %>
@@ -28,8 +29,8 @@
 		<div class="post-sidebar">
 			<h3 class="head">Related Posts</h3>
 			<ul>
-				<% Post.all.order('created_at DESC').limit(8).each do | post | %>
-					<li>
+				<% Post.all.order('created_at DESC').limit(10).each do | post | %>
+					<li class="li-rpost">
 						<%= link_to post.name, post %>
 					</li>
 				<% end %>
