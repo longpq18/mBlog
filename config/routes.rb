@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :testimonials
   mount Ckeditor::Engine => '/ckeditor'
   resources :permissions
   resources :sessions

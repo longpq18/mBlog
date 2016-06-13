@@ -13,8 +13,8 @@
   <% end %>
 
   <% Category.all.each do | cat | %>
-    <div style="clear:both;" class="post-category">
-      <h3><%= cat.name %></h3>
+    <div class="post-category">
+      <h3 class="head"><%= cat.name %></h3>
       <% if cat.posts.count === 0 %>
           <p>Posts is empty</p>
       <% else %>
