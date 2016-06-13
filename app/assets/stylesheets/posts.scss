@@ -5,10 +5,11 @@
 .posts {
 	//margin: 20px 0;
 	display: block;
+	margin-top: -10px;
 
 	.post-category {
 		display: inline-block;
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 		clear: both;
 	}
 
@@ -54,9 +55,28 @@
 				}
 			}
 
+
+
 			.category {
 				span {
 					color: #ccc;
+				}
+
+				a {
+					color: orange;
+				}
+			}
+
+			.readmore {
+				float: right;
+				padding-right: 20px;
+				a {
+					color: #ccc;
+
+					&:hover {
+						text-decoration: none;
+						color: #333;
+					}
 				}
 			}
 		}
@@ -82,19 +102,6 @@
 			.post-detail-content {
 				min-height: 230px;
 				padding: 10px;
-
-				.readmore {
-					float: right;
-					padding-right: 20px;
-					a {
-						color: #ccc;
-
-						&:hover {
-							text-decoration: none;
-							color: #333;
-						}
-					}
-				}
 			}
 
 		}
@@ -203,7 +210,7 @@
 		font-size: 20px;
 		&:before {
 			position: absolute;
-			top: 3px;
+			top: 0;
 			left: 0;
 			content: '';
 			width: 3px;
