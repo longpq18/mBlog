@@ -16,6 +16,12 @@ class PostsController < ApplicationController
     
   end
 
+  def tag
+    if params[:tag]
+        @posts = Post.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
+    end   
+  end
+
   def show
   end
 
@@ -70,6 +76,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:user_id, :name, :content, :status, :category_id, :image)
+      params.require(:post).permit(:user_id, :name, :content, :status, :category_id, :image, :tag_list)
     end
 end

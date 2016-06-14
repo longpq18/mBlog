@@ -34,6 +34,11 @@
     <%= f.check_box :status %>
   </div>
 
+  <div class="field">
+    <%= f.label :show %> 
+    <%= f.text_field :tag_list, class: 'form-control' %>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Create Post', :class => 'btn btn-primary' %>
   </div>

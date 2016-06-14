@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
 
+  get 'tags/:tag', to: 'posts#tag', as: :tag
+
   resources :categories
   
 end
