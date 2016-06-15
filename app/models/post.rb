@@ -4,11 +4,10 @@ class Post < ActiveRecord::Base
 	attr_accessible :user_id, :name, :content, :status, :category_id, :picture, :tag_list
 	has_many :taggings
 	has_many :tags, through: :taggings
+	has_many :comments
 
-	# has_attached_file :image,
-	# 	:storage => :cloudinary,
- #  		:cloudinary_credentials => Rails.root.join("config/cloudinary.yml")
- #  	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+	has_attached_file :image
+    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   	mount_uploader :picture, ImageUploader
 
