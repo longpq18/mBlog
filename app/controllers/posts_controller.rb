@@ -4,8 +4,6 @@ class PostsController < ApplicationController
 
   before_action :current_user, only: [:new, :create, :update]
 
-  
-
   def index
     @categories = Category.all
     if params[:category].blank?
@@ -77,6 +75,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:user_id, :name, :content, :status, :category_id, :image, :picture, :tag_list)
+      params.require(:post).permit(:user_id, :name, :content, :status, :category_id, :picture, :tag_list)
     end
 end
