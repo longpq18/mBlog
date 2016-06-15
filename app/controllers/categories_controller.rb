@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  layout 'posts'
+  #layout 'posts'
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   
