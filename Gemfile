@@ -17,6 +17,8 @@ gem 'will_paginate', '~> 3.1'
 gem 'protected_attributes'
 gem 'jquery-turbolinks'
 gem 'font-awesome-rails'
+gem 'carrierwave', '~> 0.11.2'
+gem 'cloudinary'
 
 gem 'coffee-rails', '~> 4.1.0'
 

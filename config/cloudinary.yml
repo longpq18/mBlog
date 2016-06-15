@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hklong
+  api_key: '591853715126393'
+  api_secret: rERR83w5LRMA3wzPZr2uVIjlPq8
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hklong
+  api_key: '591853715126393'
+  api_secret: rERR83w5LRMA3wzPZr2uVIjlPq8
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hklong
+  api_key: '591853715126393'
+  api_secret: rERR83w5LRMA3wzPZr2uVIjlPq8
+  enhance_image_tag: true
+  static_image_support: false

@@ -6,6 +6,7 @@
   	<span>Author :</span> <%= @post.user.uname %> | 
   	<span>In </span><%= link_to @post.category.name, category_path(@post.category.id) %>
   </div>
+  <p><%= image_tag @post.picture_url() if @post.picture %></p>
   <p>
     <%= raw @post.content %>
   </p>

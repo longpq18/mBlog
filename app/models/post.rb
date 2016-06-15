@@ -1,12 +1,17 @@
 class Post < ActiveRecord::Base
 	belongs_to :category
 	belongs_to :user
-	attr_accessible :user_id, :name, :content, :status, :category_id, :image, :tag_list
+	attr_accessible :user_id, :name, :content, :status, :category_id, :picture, :tag_list
 	has_many :taggings
 	has_many :tags, through: :taggings
 
-	has_attached_file :image
-  	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+	# has_attached_file :image,
+	# 	:storage => :cloudinary,
+ #  		:cloudinary_credentials => Rails.root.join("config/cloudinary.yml")
+ #  	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+  	mount_uploader :picture, ImageUploader
+
 
   	def self.tagged_with(name)
 	  Tag.find_by_name!(name).posts
