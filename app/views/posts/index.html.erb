@@ -23,7 +23,7 @@
             <div class="posts-details grid">
                 <div class="post-1">
                   <div class="img">
-                    <%= image_tag @post.picture_url() if @post.picture %>
+                    <%= image_tag post.picture_url() if @post.picture %>
                   </div> 
                   <div class="post-detail-content">
                     <h3 class="name" ><%= link_to post.name.first(40), post %></h3>
