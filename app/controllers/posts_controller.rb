@@ -4,13 +4,15 @@ class PostsController < ApplicationController
 
   before_action :current_user, only: [:new, :create, :update]
 
+  layout 'layouts/index'
+
   def index
     @categories = Category.all
     if params[:category].blank?
-      @posts = Post.all.order('created_at DESC').limit(6)
+      @posts = Post.all.order('created_at DESC').limit(4)
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @posts = Post.where( :category_id => @category_id ).order('created_at DESC').limit()
+      @posts = Post.where( :category_id => @category_id ).order('created_at DESC').limit(4)
     end 
     
   end
