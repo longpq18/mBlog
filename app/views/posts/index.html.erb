@@ -1,1 +1,50 @@
-<h1>Posts index</h1>
+
+<div class="posts">
+  <ul class="list-post">
+    <li><a id="grid" class="active">Grid</a></li>
+    <li><a id="list" class="">List</a></li>
+  </ul>
+  <p id="notice"><%= notice %></p>
+
+  <% if current_user %>
+    <div class="clear-fix">
+      <p><%= link_to 'New Post', new_post_path, :class => 'btn btn-primary' %></p>
+    </div>
+  <% end %>
+
+  <% Category.all.each do | cat | %>
+    <div class="post-category">
+      <h3 class="head"><%= cat.name %></h3>
+      <% if cat.posts.count === 0 %>
+          <p>Posts is empty</p>
+      <% else %>
+        <% cat.posts.limit(4).each do |post| %>
+          <% if post.status == 1 %>  
+            <div class="posts-details grid">
+                <div class="post-1">
+                  <div class="img">
+                    <%= image_tag post.picture_url() if post.picture %>
+                  </div> 
+                  <div class="post-detail-content">
+                    <h3 class="name" ><%= link_to post.name.first(40), post %></h3>
+                    <h4 class="category"><span>in</span> <%= link_to post.category.name, category_path(post.category.id) %></h4>
+                    <p class="content"><%= raw post.content.first(80) %>...</p>
+                    <p class="readmore"><%= link_to 'Read more', post %></p>
+                  </div>
+                </div>
+            </div>
+          <% end %>
+        <% end %>
+    <% end %>
+    </div>
+  <% end %>
+
+  <% if current_user %>
+    <div class="clear-fix">
+      <p><%= link_to 'New Post', new_post_path, :class => 'btn btn-primary' %></p>
+    </div>
+  <% end %>
+</div>
+
+
+
