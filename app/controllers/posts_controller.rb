@@ -1,10 +1,9 @@
 class PostsController < ApplicationController
-  #layout 'posts'
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   before_action :current_user, only: [:new, :create, :update]
 
-  layout 'layouts/post'
+  layout 'layouts/posts'
 
   def index
     @categories = Category.all
