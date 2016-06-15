@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
 
-  resources :comments
+  
   resources :testimonials
+  
   mount Ckeditor::Engine => '/ckeditor'
+
   resources :permissions
+
   resources :sessions
+
   resources :users
-  resources :posts
+
+  resources :posts do 
+    resources :comments
+  end
+
   get '/about' => 'pages#about'
 
   get '/contact' => 'pages#contact'
