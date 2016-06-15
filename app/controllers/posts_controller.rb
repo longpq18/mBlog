@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   before_action :current_user, only: [:new, :create, :update]
 
-  layout 'layouts/posts'
+  layout 'layouts/post'
 
   def index
     @categories = Category.all
