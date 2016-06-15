@@ -11,6 +11,7 @@
 		display: inline-block;
 		margin-bottom: 30px;
 		clear: both;
+		width: 100%;
 	}
 
 	.list-post {
@@ -254,6 +255,12 @@
 	}
 
 	.meta-data {
+		margin-bottom: 20px;
+	}
+}
+
+.new-post {
+	.field {
 		margin-bottom: 20px;
 	}
 }

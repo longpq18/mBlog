@@ -30,14 +30,15 @@
     <%= f.label :content %><br>
     <%= f.cktext_area :content %>
   </div>
+
   <div class="field">
-    <%= f.label :show %> 
-    <%= f.check_box :status %>
+    <%= f.label :tags %> 
+    <%= f.text_field :tag_list, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :Tags %> 
-    <%= f.text_field :tag_list, class: 'form-control' %>
+    <%= f.label :show %> 
+    <%= f.check_box :status %>
   </div>
 
   <div class="actions">
