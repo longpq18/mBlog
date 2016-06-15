@@ -12,6 +12,32 @@
 	<div class="col-md-9">
 		<%= yield %>	
 	</div>
+
+	<div class="col-md-3">
+		<div class="post-sidebar">
+			<h3 class="head">Category</h3>
+			<ul>
+				<% Category.all.each do | cat | %>
+					<li>
+						<i class="fa fa-folder-open-o" aria-hidden="true"></i>
+						<%= link_to cat.name, cat %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+
+		<div class="post-sidebar">
+			<h3 class="head">Related Posts</h3>
+			<ul>
+				<% Post.all.order('created_at DESC').limit(10).each do | post | %>
+					<li class="li-rpost">
+						<%= link_to post.name, post %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		
+	</div>
 </section>
 <%= render '/layouts/partials/footer' %>
 
