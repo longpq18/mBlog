@@ -6,6 +6,12 @@ class Post < ActiveRecord::Base
 	has_many :tags, through: :taggings
 	has_many :comments
 
+	validates :name, presence: true, allow_blank: false
+	validates :category_id, presence: true, allow_blank: false
+	validates :picture, presence: true, allow_blank: false
+	#validates :tag_list, presence: true, allow_blank: false
+	validates :content, presence: true, allow_blank: false
+
 	# has_attached_file :image
  #    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
