@@ -40,7 +40,9 @@
 		<div class="post-sidebar">
 			<h3 class="head">Tags Cloud</h3>
 			<div class="tags">
-				
+				<% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+				    <%= link_to tag.name, tag_path(tag.name), class: 'tag-cloud' %>
+				<% end %>
 			</div>
 		</div>
 		
