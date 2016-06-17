@@ -6,8 +6,8 @@ class Post < ActiveRecord::Base
 	has_many :tags, through: :taggings
 	has_many :comments
 
-	has_attached_file :image
-    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+	# has_attached_file :image
+ #    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   	mount_uploader :picture, ImageUploader
 
