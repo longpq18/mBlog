@@ -1,37 +1,41 @@
-<div class="slideshow">
-	<div id="owl-demo1" class="owl-carousel">
-      <% Post.all.limit(6).order('created_at DESC').each do | post | %>
-        <div class="item">
-          <%= image_tag("s1.jpg", alt: "Example Image") %>
-          <div class="item-detail">
-          		<h4>test1</h4>
-          		<h5>testetse</h5>
-          		<p>test content</p>
-          </div>
+<div class="slideshow container-fluid">
+  <div class="col-md-4 slideshow-detail">
+    
+  </div>
+  
+  <div class="col-md-8 slideshow-detail">
+    <div class="hk-slick-wrap">
+    <div class="hk-posts-default">
+        <div class="hk-posts-wrap">
+            <% Post.all.limit(10).order('created_at DESC').each do | post | %>
+                <div>
+                    <div class="hk-posts-body">
+                        <div class="hk-posts-info">
+                            <h3 class="hk-posts-title"><%= post.name %></h3>
+                        </div>
+                        <div class="hk-posts-content">
+                            <!-- <i class="fa fa-quote-left"></i> -->
+                            <%= raw post.content.first(100) %>
+                            <!-- <i class="fa fa-quote-right"></i> -->
+                        </div>
+                        <div class="hk-posts-line"><span></span></div>
+                    </div>
+                </div>
+            <% end %>
         </div>
-      <% end %>
-	</div>
+
+        <div class="hk-posts-sider-nav">
+            <% Post.all.limit(10).order('created_at DESC').each do | post | %>
+                <div>
+                  <p><%= post.name %></p>
+                </div>
+            <% end %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 </div>
 
-<script type="text/javascript">
-$(document).ready(function() {
 
-  $("#owl-demo1").owlCarousel({
-
-      navigation : false, // Show next and prev buttons
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      autoPlay : 5000,
-      stopOnHover : true,
-      //singleItem:true,
-
-      // "singleItem:true" is a shortcut for:
-      items : 1
-      // itemsDesktop : false,
-      // itemsDesktopSmall : false,
-      // itemsTablet: false,
-      // itemsMobile : false
-
-  });
-});
-</script>
+      

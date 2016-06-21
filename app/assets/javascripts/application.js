@@ -16,8 +16,9 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require jquery.raty
+//= require slick.min
+//= require mb
 //= require owl.carousel.min
 //= require qs.main.js
-//= require mb
 //= require ckeditor/init
 //= require_tree .

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-	layout 'layouts/index'
+	layout 'layouts/index', only: [:index]
 
 	def index
 	end

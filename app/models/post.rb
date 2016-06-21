@@ -23,8 +23,10 @@ class Post < ActiveRecord::Base
 	end
 
 	def self.tag_counts
-	  Tag.select("tags.*, count(taggings.tag_id) as count").
+	    Tag.select("tags.*, count(taggings.tag_id) as count").
 	    joins(:taggings).group("taggings.tag_id")
+
+	    #DataMapper.repository.adapter.select('select tags.*, t.count from tags inner join (select taggings.tag_id, count(taggings.tag_id) as count from taggings group by taggings.tag_id) t where tags.id = t.tag_id')
 	end
 
 	def tag_list
