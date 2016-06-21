@@ -1,14 +1,3 @@
-a:focus, a:active, 
-button::-moz-focus-inner,
-input[type="reset"]::-moz-focus-inner,
-input[type="button"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner,
-select::-moz-focus-inner,
-input[type="file"] > input[type="button"]::-moz-focus-inner {
-    border: 0;
-    outline : 0;
-    -moz-outline-style: none; 
-}
 
 .hk-posts-wrap {
 	text-align: center;
@@ -18,15 +7,19 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 			p {
 				position: relative;
 
+				&:before, &:after {
+					font-family: FontAwesome;
+					color: #ccc;
+					font-size: 15px;
+				}
+
 				&:before {
 					content: "\f10d";
-					font-family: FontAwesome;
 					padding-right: 15px;
 				}
 
 				&:after {
 					content: "\f10e";
-					font-family: FontAwesome;
 					padding-left: 15px;
 				}
 			}
