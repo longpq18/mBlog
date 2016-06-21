@@ -14,4 +14,13 @@
     <% if current_user && @post.user == current_user %>
 		<%= link_to 'Edit', edit_post_path(@post) %>
 	<% end %>
+
+  <div class="comments">
+    <% if current_user || session[:user_name] %>
+      <%= render @post.comments %>
+      <%= render 'comments/form'  %>
+    <% else %>
+      <p>You are first login to comment <a href="/login">Login</a></p>
+    <% end %>
+  </div>
 </div>
