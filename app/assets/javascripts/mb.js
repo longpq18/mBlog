@@ -48,8 +48,8 @@ $(document).ready(function() {
                 asNavFor: $('.hk-posts-sider-nav', $(this))
             });
             $('.hk-posts-sider-nav', $(this)).slick({
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 5,
+                slidesToScroll: 1,
                 asNavFor: $('.hk-posts-wrap', $(this)),
                 dots: false,
                 arrows: false,

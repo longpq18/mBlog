@@ -1,24 +1,27 @@
-<div class="slideshow container-fluid">
-  <div class="col-md-4 slideshow-detail">
-    
-  </div>
-  
-  <div class="col-md-8 slideshow-detail">
+<div class="slideshow container-fluid">  
+  <div class="slideshow-detail">
     <div class="hk-slick-wrap">
     <div class="hk-posts-default">
         <div class="hk-posts-wrap">
             <% Post.all.limit(10).order('created_at DESC').each do | post | %>
                 <div>
                     <div class="hk-posts-body">
-                        <div class="hk-posts-info">
-                            <h3 class="hk-posts-title"><%= post.name %></h3>
-                        </div>
+                      <div class="body-img">
+                        <% if post.picture? %>
+                          <%= image_tag post.picture_url() %>
+                        <% else %>
+                          <%= image_tag ("mblog.jpg") %>
+                        <% end %>
+
+                      </div>
+                      <div class="body-content">
                         <div class="hk-posts-content">
                             <!-- <i class="fa fa-quote-left"></i> -->
+                            <h3><%= link_to post.name, post %></h3>
                             <%= raw post.content.first(100) %>
                             <!-- <i class="fa fa-quote-right"></i> -->
                         </div>
-                        <div class="hk-posts-line"><span></span></div>
+                      </div>
                     </div>
                 </div>
             <% end %>
@@ -26,8 +29,13 @@
 
         <div class="hk-posts-sider-nav">
             <% Post.all.limit(10).order('created_at DESC').each do | post | %>
-                <div>
-                  <p><%= post.name %></p>
+                <div class="nav-imgs">
+                  <% if post.picture? %>
+                    <%= image_tag post.picture_url() %>
+                  <% else %>
+                    <%= image_tag ("mblog.jpg") %>
+                  <% end %>
+                  <div class="hover"></div>
                 </div>
             <% end %>
         </div>

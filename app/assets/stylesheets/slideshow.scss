@@ -3,33 +3,58 @@
 	text-align: center;
 
 	.hk-posts-body {
-		.hk-posts-content {
-			p {
-				position: relative;
+		position: relative;
+		height: 400px;
 
-				&:before, &:after {
+		.body-img {
+			width: 100%;
+			height: 100%;
+			
+			img {
+				width: 100%;
+				height: 100%;
+			}
+
+		}
+		.hk-posts-content {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background: #000;
+			opacity: .7;
+			padding: 20px;
+
+			p {
+				
+				color: #fff;
+
+				/* &:before, &:after {
 					font-family: FontAwesome;
 					color: #ccc;
 					font-size: 15px;
 				}
-
+				
 				&:before {
 					content: "\f10d";
 					padding-right: 15px;
 				}
-
+				
 				&:after {
 					content: "\f10e";
 					padding-left: 15px;
-				}
+				} */
 			}
 		}
 	}
 }
 
 .hk-posts-sider-nav {
-	border: 2px solid blue;
+	border: 2px solid #ccc;
 	height: 100px;
+	height: 100px;
+	width: 740px;
+	margin-left: 20px;
 	.slick-list {
 		height: 100%;
 		//padding: 0 80px !important;
@@ -37,11 +62,78 @@
 			height: 100%;
 		    .slick-slide {
 		    	height: 100%;
-				width: 233px !important;
+				//width: 163px !important;
+				padding: 0 !important;
+				margin: 0 2px !important;
 		        &.slick-current  {
-		            border: 2px solid red;
+		            border: 2px solid #e5e5e5;
+
+		            .hover {
+						background: #000;
+						opacity: 0;
+					}
 		        }
+
+		        &:hover {
+		        	.hover {
+						background: #000;
+						opacity: 0;
+					}
+		        }
+
+		        
 		    }
 		}
+	}
+
+	.nav-imgs {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.hover {
+			position: absolute;
+			content: '';
+			background: #000;
+			opacity: .7;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+}
+
+.slide-details {
+	padding: 0 !important;
+	overflow: hidden;
+}
+
+.slide-post-content {
+	padding: 0 !important;
+	margin: 0 0 0 -25px !important;
+	.post-details {
+		overflow: hidden;
+
+		.body-img {
+			overflow: hidden;
+			height: 250px;
+		
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		
+		.body-content {
+			width: 100%;
+			height: 250px;
+			border: 1px solid #ccc;
+			padding: 20px;
+		} 
 	}
 }

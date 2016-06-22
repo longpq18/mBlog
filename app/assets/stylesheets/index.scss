@@ -1,0 +1,16 @@
+.posts-index {
+	clear: both;
+	margin-top: 20px;
+	.posts{
+		margin-top: 0;
+
+		.post-content-left {
+			.img {
+				height: 100px;
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
