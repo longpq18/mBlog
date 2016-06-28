@@ -1,0 +1,2 @@
+module Madmin::AdminHelper
+end

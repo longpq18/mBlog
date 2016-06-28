@@ -1,0 +1,2 @@
+module Madmin::DashboardHelper
+end

@@ -1,0 +1,93 @@
+
+<% 
+	i = 0
+	a = []
+%>
+
+<% Post.all.limit(13).each do |post| %>
+	<% i = i + 1 %>
+	<% a[i] = post %>
+<% end %>
+<div class="grid-posts">
+	<div class="col-md-6 grid-posts-nav">
+    <div class="content">
+      <div class="img-left">
+        <% if a[1].picture? %>
+            <%= image_tag post.picture_url() %>
+        <% else %>
+              <%= image_tag ("mblog.jpg") %>
+        <% end %>   
+      </div>
+      <div class="content-right">
+    		<h3><%= a[1].name %></h3>
+    		<p><%= raw a[1].content.first(100) %></p>
+      </div>
+    </div>		
+	</div>
+	<div class="col-md-3 grid-posts-1">
+    <div class="content">
+      <div class="img">
+    		<% if a[2].picture? %>
+              <%= image_tag post.picture_url() %>
+          <% else %>
+                <%= image_tag ("mblog.jpg") %>
+         <% end %>
+      </div>
+      <div class="details">
+        <h3><%= a[2].name %></h3>
+        <p><%= raw a[2].content.first(100) %></p>
+      </div>
+    </div>                     
+	</div>
+
+  <div class="col-md-3 grid-posts-1">
+    <div class="content">
+      <div class="details">
+        <h3><%= a[3].name %></h3>
+        <p><%= raw a[3].content.first(100) %></p>
+      </div>   
+      <div class="img">
+        <% if a[3].picture? %>
+              <%= image_tag post.picture_url() %>
+          <% else %>
+                <%= image_tag ("mblog.jpg") %>
+         <% end %>
+      </div>
+      
+    </div>                    
+  </div>
+
+  <div class="col-md-6 grid-posts-nav">
+    <div class="content">
+      <div class="img-right">
+        <% if a[4].picture? %>
+            <%= image_tag post.picture_url() %>
+        <% else %>
+              <%= image_tag ("mblog.jpg") %>
+        <% end %>   
+      </div>
+      <div class="content-left">
+        <h3><%= a[4].name %></h3>
+        <p><%= raw a[4].content.first(100) %></p>
+      </div>
+    </div>    
+  </div>
+
+  <div class="col-md-6">
+    <h3><%= a[5].name %></h3>
+    <p><%= raw a[5].content.first(100) %></p>
+  </div>
+
+  <div class="col-md-3">
+    <% if a[6].picture? %>
+          <%= image_tag post.picture_url() %>
+      <% else %>
+            <%= image_tag ("mblog.jpg") %>
+     <% end %>                       
+  </div>
+</div>
+
+
+
+
+

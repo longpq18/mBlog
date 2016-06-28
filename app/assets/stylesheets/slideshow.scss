@@ -53,16 +53,13 @@
 	border: 2px solid #ccc;
 	height: 100px;
 	height: 100px;
-	width: 740px;
-	margin-left: 20px;
+	width: 100%;
 	.slick-list {
 		height: 100%;
-		//padding: 0 80px !important;
 		.slick-track {
 			height: 100%;
 		    .slick-slide {
 		    	height: 100%;
-				//width: 163px !important;
 				padding: 0 !important;
 				margin: 0 2px !important;
 		        &.slick-current  {
@@ -114,26 +111,68 @@
 }
 
 .slide-post-content {
-	padding: 0 !important;
-	margin: 0 0 0 -25px !important;
-	.post-details {
-		overflow: hidden;
+	z-index: 99999;
+	overflow: hidden;
+	padding-right: 0 !important;
+	
+	.slide-post-content-1 {
+		border: 1px solid #e5e5e5;
+		border-bottom: 0;
+		width: 100%;
+		display: inline-block;
 
-		.body-img {
-			overflow: hidden;
-			height: 250px;
-		
-			img {
-				width: 100%;
-				height: 100%;
+		.head { margin: 12px; }
+
+		.post-details {
+			height: 90px;
+			padding: 0;
+			border-top: 1px solid #e5e5e5;
+
+			&:last-child {
+				border-bottom: 1px solid #e5e5e5;
 			}
+
+			.body-img {
+				overflow: hidden;
+				height: 100%;
+				width: 40%;
+				float: left;
+			
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			
+			.body-content {
+				width: 59%;
+				float: right;
+				height: 100%;
+				
+				padding: 20px;
+
+				h3 {
+					font-size: 17px;
+					margin-top: 0;
+					a {
+						color: #333;
+					}
+
+					&:hover {
+						a {
+							color: orange;
+							text-decoration: none;
+						}
+					}
+				}
+
+				.meta-data {
+					color: #ccc;
+					span {
+						font-style: italic;
+					}
+				}
+			} 
 		}
-		
-		.body-content {
-			width: 100%;
-			height: 250px;
-			border: 1px solid #ccc;
-			padding: 20px;
-		} 
 	}
 }

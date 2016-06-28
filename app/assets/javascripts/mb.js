@@ -32,6 +32,25 @@ $(document).ready(function() {
       // itemsTablet: false,
       // itemsMobile : false
   });
+
+  $('.grid-view').isotope({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    masonry: {
+      columnWidth: '.grid-sizer'
+    }
+  });
+
+  /*$('.grid-view .grid-item').each(function(index) {
+    index++;
+
+    if(index % 2 == 0) {
+      $(this).addClass('grid-item--width2');
+
+    } else if(index % 3 == 0){
+      $(this).addClass('grid-item--width2 grid-item--height2');
+    }
+  });*/
 });
 
 (function($) {
@@ -56,7 +75,7 @@ $(document).ready(function() {
                 centerMode: true,
                 focusOnSelect: true,
                 autoplay: true,
-                autoplaySpeed: 5000,
+                autoplaySpeed: 8000,
             });
         });
     });

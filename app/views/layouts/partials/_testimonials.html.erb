@@ -1,1 +1,40 @@
-<h2>Testimonials</h2>
+<div class="mb-testimonials">
+	<h3 class="head">Testimonials</h3>
+	<div id="owl-demo" class="owl-carousel">
+	    <% Testimonial.all.limit(3).each do | testi | %>
+
+	        <div class="item">
+	          	<% if testi.image? %>
+	              <%= image_tag testi.image_url() %>
+	            <% else %>
+	              <%= image_tag ("mblog.jpg") %>
+	            <% end %>
+	          	<div class="item-detail">
+	          		<h4><%= testi.name %></h4>
+	          		<h5><%= testi.website %></h5>
+	          		<p><%= raw testi.content %></p>
+	          	</div>
+	        </div>
+	    <% end %>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $("#owl-demo").owlCarousel({
+
+      navigation : true, // Show next and prev buttons
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      //singleItem:true,
+
+      // "singleItem:true" is a shortcut for:
+      items : 3
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+
+  });
+});
+</script>

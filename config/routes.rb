@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   
+  namespace :madmin do
+    resources :posts
+  end
   resources :testimonials
   
   mount Ckeditor::Engine => '/ckeditor'
@@ -32,5 +35,11 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#tag', as: :tag
 
   resources :categories
-  
+
+  # admin
+  namespace :madmin do
+    resources :posts
+    resources :dashboard
+    get '', to: 'dashboard#index', as: '/'
+  end
 end

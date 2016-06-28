@@ -1,37 +1,25 @@
 
 <div class="posts">
-  <% Category.all.each do | cat | %>
-    <div class="post-category">
-      <h3 class="head"><%= cat.name %></h3>
-      <% if cat.posts.count === 0 %>
-          <p>Posts is empty</p>
-      <% else %>
-        <div class="col-md-6 post-content-left">
-          <% a = '' %>
-          <% cat.posts.limit(1).each do |post| %>
-            <% a = post.id %>
+  <% Post.order('created_at DESC').limit(16).each do |post| %>
+        <div class="col-md-3 col-sm-6 col-xs-12 posts-details">
+          <div class="posts-details-1">
             <div class="img">
               <% if post.picture? %>
-                  <%= image_tag post.picture_url() %>
+                  <%= link_to (image_tag post.picture_url()), post %>
                 <% else %>
-                  <%= image_tag ("mblog.jpg") %>
+                  <%= link_to (image_tag ("mblog.jpg")), post %>
               <% end %>
             </div>
-            <h3><%= post.name %></h3>
-            <p><%= raw post.content.first(100) %></p>
-          <% end %>
-        </div>
 
-        <div class="col-md-6 post-content-right">
-          <% cat.posts.limit(3).where.not(:id => a).each do |p| %>
-            <% if p.status == 1 %>          
-                <h3><%= p.name %></h3>
-            <% end %>
-          
-          <% end %>
+            <div class="content">
+              <h3><%= link_to post.name.first(40), post %></h3>
+              <p><span>Posted at <%= time_ago_in_words(post.created_at) %></span></p>
+              <p><%= raw post.content.first(110) %></p>
+              <p class="readmore"><%= link_to 'Read More', post %></p>
+            </div>
+          </div>
+            
         </div>
-    <% end %>
-    </div>
   <% end %>
 </div>
 

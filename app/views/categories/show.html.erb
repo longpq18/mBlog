@@ -1,4 +1,4 @@
-<div class="posts">
+<div class="posts post-cat">
 	<ul class="list-post">
 	    <li><a id="grid" class="active">Grid</a></li>
 	    <li><a id="list" class="">List</a></li>
@@ -6,26 +6,26 @@
 <p id="notice"><%= notice %></p>
 
  <h3 class=""><%= @category.name %> Language</h3>
-  <% Post.all.where(:category_id => @category.id).each do | post | %>
-	<div class="posts-details grid">
-            <% if post.status == 1 %>  
-              <div class="post-1">
-                <div class="img">
-                  <% if post.picture? %>
-                      <%= image_tag post.picture_url() %>
-                    <% else %>
-                      <%= image_tag ("mblog.jpg") %>
-                    <% end %>
-                </div> 
-                <div class="post-detail-content">
-                  <h3 class="name" ><%= link_to post.name.first(40), post %></h3>
-                  <h4 class="category"><span>In</span> <%= link_to post.category.name, category_path(post.category.id) %></h4>
-                  <p class="content"><%= raw post.content.first(80) %>...</p>
-                  <p class="readmore"><%= link_to 'Read more', post %></p>
-                </div>
-              </div>
-            <% end %>
+  <% Post.all.where( :category_id => @category.id ).each do | post | %>
+    <% if post.status == 1 %>
+	    <div class="posts-details grid">
+        <div class="post-1">
+          <div class="img">
+            <% if post.picture? %>
+                <%= image_tag post.picture_url() %>
+              <% else %>
+                <%= image_tag ("mblog.jpg") %>
+              <% end %>
+          </div> 
+          <div class="post-detail-content">
+            <h3 class="name" ><%= link_to post.name.first(40), post %></h3>
+            <h4 class="category"><span>In</span> <%= link_to post.category.name, category_path(post.category.id) %></h4>
+            <p class="content"><%= raw post.content.first(80) %>...</p>
+            <p class="readmore"><%= link_to 'Read more', post %></p>
           </div>
+        </div>
+      </div>
     <% end %>
+  <% end %>
 </div>
 

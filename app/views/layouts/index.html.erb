@@ -15,25 +15,28 @@
 				<%= render '/layouts/partials/slideshow' %>
 			</div>
 			<div class="col-md-4 slide-post-content">
-				<% Post.all.order('created_at ASC').limit(1).each do |post| %>
-					<div class="col-md-12 post-details">
-						<div class="body-img">
-	                        <% if post.picture? %>
-	                          <%= image_tag post.picture_url() %>
-	                        <% else %>
-	                          <%= image_tag ("mblog.jpg") %>
-	                        <% end %>s
-	                    </div>
-	                    <div class="body-content">
-	                        <div class="hk-posts-content">
-	                            <!-- <i class="fa fa-quote-left"></i> -->
-	                            <h3><%= link_to post.name, post %></h3>
-	                            <%= raw post.content.first(380) %>
-	                            <!-- <i class="fa fa-quote-right"></i> -->
-	                        </div>
-	                    </div>
-					</div>
-				<% end %>
+				<div class="slide-post-content-1">
+					<h3 class="head">Random Posts</h3>
+					<% Post.all.order('RAND()').limit(5).each do |post| %>
+						<div class="col-md-12 post-details">
+							<div class="body-img">
+		                        <% if post.picture? %>
+		                          <%= image_tag post.picture_url() %>
+		                        <% else %>
+		                          <%= image_tag ("mblog.jpg") %>
+		                        <% end %>
+		                    </div>
+		                    <div class="body-content">
+		                        <div class="hk-posts-content">
+		                            <!-- <i class="fa fa-quote-left"></i> -->
+		                            <h3><%= link_to post.name, post %></h3>
+		                            <p class="meta-data"><span>By </span><%= post.user.uname %></p>
+		                            <!-- <i class="fa fa-quote-right"></i> -->
+		                        </div>
+		                    </div>
+						</div>
+					<% end %>
+				</div>
 			</div>
 	</div>
 
@@ -41,9 +44,9 @@
 		<%= render '/layouts/partials/posts_index' %>
 	</div>
 
-	<div class="container posts-index">
-		<%= render '/layouts/partials/testimonials' %>
-	</div>
+	<!-- <div class="container background">
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+	</div> -->
 
 </section>
 <%= render '/layouts/partials/footer' %>

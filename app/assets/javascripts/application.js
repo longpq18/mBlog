@@ -17,6 +17,7 @@
 //= require bootstrap.min
 //= require jquery.raty
 //= require slick.min
+//= require isotope.pkgd.js
 //= require mb
 //= require owl.carousel.min
 //= require qs.main.js

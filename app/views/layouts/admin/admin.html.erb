@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QuickShop</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<section class="layout-admin">
+	<%= render 'layouts/admin/header' %>
+
+	<section class="container-fluid admin-main-content">
+		<div class="col-md-3 admin-sider">
+			<ul>
+				<li><li><%= link_to 'Posts Manager', madmin_posts_path %></li></li>
+				<li><a href="#">Users Manager</a></li>
+				<li><a href="#">Pages Manager</a></li>
+			</ul>
+		</div>
+
+		<div class="col-md-9 admin-content">
+			<%= yield %>
+		</div>
+			
+	</section>
+
+	<%= render 'layouts/admin/footer' %>
+</section>
+
+
+</body>
+</html>

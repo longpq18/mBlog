@@ -1,0 +1,2 @@
+module Madmin::PostsHelper
+end

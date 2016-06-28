@@ -1,0 +1,40 @@
+
+<% 
+	i = 0
+	a = []
+%>
+
+<% Post.all.limit(13).each do |post| %>
+	<% i = i + 1 %>
+	<% a[i] = post %>
+<% end %>
+<div class="grid-view">
+	<div class="grid-sizer"></div>
+  	<div class="grid-item grid-item--width2">
+  		<h3><%= a[1].name %></h3>
+  		<p><%= raw a[1].content.first(200) %></p>
+  		
+  	</div>
+  	<div class="grid-item grid-item--height2">
+  		<% if a[3].picture? %>
+            <%= image_tag post.picture_url() %>
+        <% else %>
+              <%= image_tag ("mblog.jpg") %>
+       <% end %>                       
+	</div>
+  	<div class="grid-item grid-item--width2 grid-item--height2"><%= a[4].name %></div>
+  	<div class="grid-item grid-item--width2 grid-item--height2"><%= a[5].name %></div>
+  	<div class="grid-item grid-item--width2"><%= a[6].name %></div>
+  	<div class="grid-item grid-item--width2"><%= a[7].name %></div>
+  	<div class="grid-item grid-item--height2"><%= a[8].name %></div>
+  	<div class="grid-item"><%= a[9].name %></div>
+  	<div class="grid-item grid-item--width2"><%= a[10].name %></div>
+  	<div class="grid-item grid-item--height2"><%= a[11].name %></div>
+  	<div class="grid-item"><%= a[12].name %></div>
+  	<div class="grid-item"><%= a[13].name %></div>
+</div>
+
+
+
+
+
