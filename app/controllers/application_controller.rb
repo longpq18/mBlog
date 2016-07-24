@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  # before_filter :link_return
 
   private
   	def current_user
@@ -18,6 +19,21 @@ class ApplicationController < ActionController::Base
 	  	else
 	    	redirect_to '/login'
 	    end
-
 	end
+
+	def after_sign_in_path_for(resource)
+	  	blacklist = [new_user_session_path, new_user_registration_path] # etc...
+	  	last_url = session["user_return_to"]
+	  	if blacklist.include?(last_url)
+	    	root_path
+	  	else
+	    	last_url
+	  	end
+	end
+
+	# def link_return
+	#   	if params[:return_uri]
+	#     	session[:original_uri] = params[:return_uri]
+	#   	end
+	# end
 end

@@ -1,4 +1,4 @@
-class Madmin::DashboardController < ApplicationController
+class Madmin::DashboardController < Madmin::AdminController
 	def index
 		
 	end

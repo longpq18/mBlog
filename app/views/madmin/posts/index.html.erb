@@ -1,23 +1,34 @@
-<% Category.all.each do | cat | %>
-    <div class="post-category">
-      <h3 class="head"><%= cat.name %></h3>
-      <% if cat.posts.count === 0 %>
-          <p>Posts is empty</p>
-      <% else %>
-        <% cat.posts.limit(4).each do |post| %>
-          <% if post.status == 1 %>  
-            <div class="posts-details grid">
-                <div class="post-1">
-                  <div class="post-detail-content">
-                    <h3 class="name" ><%= link_to post.name.first(40), post %></h3>
-                    <h4 class="category"><span>in</span> <%= link_to post.category.name, category_path(post.category.id) %></h4>
-                    <p class="content"><%= raw post.content.first(80) %>...</p>
-                    
-                  </div>
-                </div>
-            </div>
-          <% end %>
-        <% end %>
-    <% end %>
-    </div>
-  <% end %>
+
+
+<%= collection_select( :post, :category_id, Category.all, :id, :name, prompt: true, :selected=> params[:category_id] ) %>
+
+<div class="show-post-details">
+	<% @posts.each do |post| %>
+		<p><%= post.name %></p>
+	<% end %>
+
+	<%= will_paginate @posts %>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#post_category_id').change(function() {   
+	        //var selectCategory = $("#post_category_id").find('option:selected').val();
+	        var selectCategory = $("select[id$=post_category_id]").val();
+	        load_data(selectCategory);
+	    });
+
+	    function load_data(id) {  
+	    	//var value = $(this).val()
+	        $.ajax({
+		        url: "<%= madmin_posts_path(:html) %>",
+		        type: "GET",
+		        data: {"category_id" : id},
+		        dataType: "html",
+		        success: function(data) {
+		            $(".show-post-details").html(data);
+		        },
+	        });
+	    };
+	})
+</script>

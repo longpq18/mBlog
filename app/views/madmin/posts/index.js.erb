@@ -1,0 +1,8 @@
+<div class="show-post-details">	
+	<% @posts.each do |post| %>
+		<p><%= post.name %></p>
+	<% end %>
+
+	<%= will_paginate @posts %>
+</div>
+

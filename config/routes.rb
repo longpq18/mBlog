@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  
-  namespace :madmin do
-    resources :posts
-  end
   resources :testimonials
   
   mount Ckeditor::Engine => '/ckeditor'
@@ -38,8 +34,16 @@ Rails.application.routes.draw do
 
   # admin
   namespace :madmin do
-    resources :posts
     resources :dashboard
     get '', to: 'dashboard#index', as: '/'
+
+    resources :posts do
+      get ":category_id", action: :index, on: :collection
+      #get "update_text", as: "update_text"
+      #get "index/:category_id" => "posts#index"
+      #get "details" => "posts#details"
+    end
+
+
   end
 end
