@@ -1,5 +1,5 @@
 
-
+<label>Select Category </label>
 <%= collection_select( :post, :category_id, Category.all, :id, :name, prompt: true, :selected=> params[:category_id] ) %>
 
 <div class="show-post-details">

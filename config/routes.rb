@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :sessions
 
+  resources :password_resets
+
   resources :users
 
   resources :posts do 
@@ -39,11 +41,8 @@ Rails.application.routes.draw do
 
     resources :posts do
       get ":category_id", action: :index, on: :collection
-      #get "update_text", as: "update_text"
-      #get "index/:category_id" => "posts#index"
-      #get "details" => "posts#details"
     end
 
-
   end
+  
 end

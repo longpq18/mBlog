@@ -1,15 +1,19 @@
 class User < ActiveRecord::Base
-	#attr_accessor :password
+	  #attr_accessor :password
     #has_secure_password
-	  has_many :posts, dependent: :destroy
+	  has_many :posts
     has_many :reviews
     has_many :comments
     before_save :encrypt_password
     after_save :clear_password
-    #before_create { generate_token(:auth_token) }
+    before_create { generate_token(:auth_token) }
 
     has_attached_file :avatar
   	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
+    #attr_accessible :email, :password, :password_confirmation
+
+    validates_presence_of :password, :on => :create
 
 
 
@@ -20,6 +24,7 @@ class User < ActiveRecord::Base
     
     validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
+          
     validates :pword, :confirmation => true #password_confirmation attr
     validates_length_of :pword, :in => 6..20, :on => :create
 
@@ -65,4 +70,5 @@ class User < ActiveRecord::Base
         self[column] = SecureRandom.urlsafe_base64
       end while User.exists?(column => self[column])
     end
+
 end

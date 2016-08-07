@@ -34,7 +34,7 @@
 				</nav>
 			</div>
 			<div class="col-md-3 search">
-				<%= form_tag posts_path, :method => 'get' do %>
+				<% form_for :search, :url => { :controller => 'posts', :action => 'search' } do %>
 				  <p>
 				    <%= text_field_tag :search, params[:search], :placeholder => 'Input Text' %>
 				    <%= submit_tag "Search", :name => nil %>

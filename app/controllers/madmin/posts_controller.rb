@@ -13,7 +13,7 @@ class Madmin::PostsController < Madmin::AdminController
 
       	respond_to do |format|
 	      format.html { render 'details', :layout => false if request.xhr? }
-	      format.js { render 'index' }
+	      format.js { render 'index' } #index.js.erb
 	      format.json { render json: @posts }
 	    end
     end

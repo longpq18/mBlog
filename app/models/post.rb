@@ -38,4 +38,9 @@ class Post < ActiveRecord::Base
 	    Tag.where(name: n.strip).first_or_create!
 	  end
 	end
+
+	def self.search(search)
+		  where("name LIKE ?", "%#{search}%") 
+		  where("content LIKE ?", "%#{search}%")
+	end
 end

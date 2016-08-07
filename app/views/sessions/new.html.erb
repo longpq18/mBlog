@@ -21,12 +21,10 @@
 	      <%= label_tag :remember_me %>
 	    </div>
 
-	    <p><a href="#">forgotten password?</a></p>
+	    <p><%= link_to "forgotten password?", new_password_reset_path %></p>
 
 	    <div class="actions"> 
-	      <%= submit_tag 'Login', :class => 'btn btn-warning' %> 
-
-	      
+	      <%= submit_tag 'Login', :class => 'btn btn-warning' %>  
 	    </div> 
 
 	  <% end %> 
