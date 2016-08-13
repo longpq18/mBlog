@@ -17,7 +17,7 @@
 			<div class="col-md-4 slide-post-content">
 				<div class="slide-post-content-1">
 					<h3 class="head">Random Posts</h3>
-					<% Post.all.order('RAND()').limit(5).each do |post| %>
+					<% Post.all.limit(5).each do |post| %>
 						<div class="col-md-12 post-details">
 							<div class="body-img">
 		                        <% if post.picture? %>
