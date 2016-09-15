@@ -49,7 +49,7 @@ Rails.application.configure do
       domain: "gmail.com" ,
       authentication: :login,
       user_name: "tinlth2@gmail.com",
-      password: "L0n91988" 
+      password: "##########" 
   }
 
   #config.action_mailer.default_charset = "utf-8"

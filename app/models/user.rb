@@ -6,16 +6,14 @@ class User < ActiveRecord::Base
     has_many :comments
     before_save :encrypt_password
     after_save :clear_password
-    before_create { generate_token(:auth_token) }
+    #before_create { generate_token(:auth_token) }
 
     has_attached_file :avatar
   	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
     #attr_accessible :email, :password, :password_confirmation
 
-    validates_presence_of :password, :on => :create
-
-
+    #validates_presence_of :password, :on => :create
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :first_name, :length => { :in => 3..20 }
